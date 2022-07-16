@@ -22,7 +22,7 @@ for r in range(0,9):
         if pg.locateOnScreen('0.png', grayscale=True, region=(363+56*c, 238+56*r, size, size)):
             sdk[r][c] = 0
 
-        if pg.locateOnScreen('1.png', grayscale=True, confidence=0.9, region=(363+56*c, 238+56*r, size, size)):
+        elif pg.locateOnScreen('1.png', grayscale=True, confidence=0.9, region=(363+56*c, 238+56*r, size, size)):
             sdk[r][c] = 1
 
         elif pg.locateOnScreen('2.png', grayscale=True, confidence=0.9, region=(363+56*c, 238+56*r, size, size)):
@@ -52,22 +52,22 @@ for r in range(0,9):
         else:
             sdk[r][c] = 0
 
-def tester(row, column, num):
+def tester(r, c, num):
     
     global sdk
     
     for i in range(0,9):
         
-        if sdk[row][i] == num:
+        if sdk[r][i] == num:
             return False
 
     for i in range(0,9):
        
-        if sdk[i][column] == num:
+        if sdk[i][x] == num:
             return False
     
-    x = (column // 3) * 3
-    y = (row // 3) * 3
+    x = (c // 3) * 3
+    y = (r // 3) * 3
     
     for i in range(0,3):
       
@@ -82,19 +82,19 @@ def helper():
     
     global sdk
    
-    for row in range(0,9):
+    for r in range(0,9):
        
-        for column in range(0,9):
+        for c in range(0,9):
             
-            if sdk[row][column] == 0:
+            if sdk[r][c] == 0:
                
                 for num in range(1,10):
                     
-                    if tester(row, column, num):
+                    if tester(r, c, num):
                         
-                        sdk[row][column] = num
+                        sdk[r][c] = num
                         helper()
-                        sdk[row][column] = 0
+                        sdk[r][c] = 0
 
                 return
       
