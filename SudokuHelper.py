@@ -2,8 +2,6 @@ import numpy as np
 import pyautogui as pg
 import time
 
-start_time = time.time()
-
 sdk = [[0,0,0, 0,0,0, 0,0,0],
        [0,0,0, 0,0,0, 0,0,0],
        [0,0,0, 0,0,0, 0,0,0],
@@ -68,14 +66,14 @@ def tester(row, column, num):
         if sdk[i][column] == num:
             return False
     
-    x0 = (column // 3) * 3
-    y0 = (row // 3) * 3
+    x = (column // 3) * 3
+    y = (row // 3) * 3
     
     for i in range(0,3):
       
         for j in range(0,3):
            
-            if sdk[y0+i][x0+j] == num:
+            if sdk[y+i][x+j] == num:
                 return False
 
     return True
@@ -107,15 +105,13 @@ def helper():
     for r in range(0,9):
         
         for c in range(0,9):
+            
             pg.press(str(sdk[r][c])) 
-            time.sleep(1)
+            time.sleep(0.25)
             pg.press('right')
-            time.sleep(1)
+            time.sleep(0.25)
 
         pg.press('down') 
         pg.press('left', presses=8) 
 
 helper()
-
-print("Process finished --- %s seconds ---" % (time.time() - start_time))
-
