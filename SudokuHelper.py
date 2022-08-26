@@ -1,6 +1,5 @@
 import numpy as np
 import pyautogui as pg
-import time
 
 sdk = [[0,0,0, 0,0,0, 0,0,0],
        [0,0,0, 0,0,0, 0,0,0],
@@ -15,8 +14,6 @@ sdk = [[0,0,0, 0,0,0, 0,0,0],
        [0,0,0, 0,0,0, 0,0,0]]
 
 size = 56
-
-#def ImageRecognition():
 
 for r in range(0,9):
     for c in range(0, 9):
