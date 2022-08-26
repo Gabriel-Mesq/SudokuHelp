@@ -16,41 +16,45 @@ sdk = [[0,0,0, 0,0,0, 0,0,0],
 
 size = 56
 
+#def ImageRecognition():
+
 for r in range(0,9):
     for c in range(0, 9):
         
         if pg.locateOnScreen('numbers\\0.png', grayscale=True, region=(363+56*c, 238+56*r, size, size)):
-            sdk[r][c] = 0
-
-        if pg.locateOnScreen('numbers\\1.png', grayscale=True, confidence=0.9, region=(363+56*c, 238+56*r, size, size)):
+            sdk[r][c] = 0       
+ 
+        if pg.locateOnScreen('numbers\\1.png', grayscale=True, confidence=0.75, region=(363+56*c, 238+56*r, size, size)):
             sdk[r][c] = 1
 
-        elif pg.locateOnScreen('numbers\\2.png', grayscale=True, confidence=0.9, region=(363+56*c, 238+56*r, size, size)):
+        elif pg.locateOnScreen('numbers\\2.png', grayscale=True, confidence=0.75, region=(363+56*c, 238+56*r, size, size)):
             sdk[r][c] = 2
 
         elif pg.locateOnScreen('numbers\\3.png', grayscale=True, confidence=0.9, region=(363+56*c, 238+56*r, size, size)):
             sdk[r][c] = 3
 
-        elif pg.locateOnScreen('numbers\\4.png', grayscale=True, confidence=0.9, region=(363+56*c, 238+56*r, size, size)):
+        elif pg.locateOnScreen('numbers\\4.png', grayscale=True, confidence=0.75, region=(363+56*c, 238+56*r, size, size)):
             sdk[r][c] = 4
 
-        elif pg.locateOnScreen('numbers\\5.png', grayscale=True, confidence=0.9, region=(363+56*c, 238+56*r, size, size)):
+        elif pg.locateOnScreen('numbers\\5.png', grayscale=True, confidence=0.75, region=(363+56*c, 238+56*r, size, size)):
             sdk[r][c] = 5
 
-        elif pg.locateOnScreen('numbers\\6.png', grayscale=True, confidence=0.9, region=(363+56*c, 238+56*r, size, size)):
+        elif pg.locateOnScreen('numbers\\6.png', grayscale=True, confidence=0.75, region=(363+56*c, 238+56*r, size, size)):
             sdk[r][c] = 6
 
-        elif pg.locateOnScreen('numbers\\7.png', grayscale=True, confidence=0.9, region=(363+56*c, 238+56*r, size, size)):
+        elif pg.locateOnScreen('numbers\\7.png', grayscale=True, confidence=0.75, region=(363+56*c, 238+56*r, size, size)):
             sdk[r][c] = 7
 
-        elif pg.locateOnScreen('numbers\\8.png', grayscale=True, confidence=0.9, region=(363+56*c, 238+56*r, size, size)):
+        elif pg.locateOnScreen('numbers\\8.png', grayscale=True, confidence=0.75, region=(363+56*c, 238+56*r, size, size)):
             sdk[r][c] = 8
 
-        elif pg.locateOnScreen('numbers\\9.png', grayscale=True, confidence=0.9, region=(363+56*c, 238+56*r, size, size)):
+        elif pg.locateOnScreen('numbers\\9.png', grayscale=True, confidence=0.75, region=(363+56*c, 238+56*r, size, size)):
             sdk[r][c] = 9
 
         else:
             sdk[r][c] = 0
+
+print(np.matrix(sdk))
 
 def tester(row, column, num):
     
@@ -114,4 +118,3 @@ def helper():
         pg.press('left', presses=8) 
 
 helper()
-
